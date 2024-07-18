@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import BackButton from '../components/backButton'
-import Spinner from '../components/spinner'
+import BackButton from '../components/backButton';
+import Spinner from '../components/spinner';
 
-const showBook = () => {
+const ShowBook = () => {
     const [book, setBook] = useState({});
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
     const { id } = useParams();
 
     useEffect(() => {
@@ -20,45 +20,49 @@ const showBook = () => {
             .catch((error) => {
                 console.log(error);
                 setLoading(false);
-            })
-    }, [])
+            });
+    }, [id]);
 
     return (
-        <div className='p-4'>
+        <div className='p-6'>
             <BackButton />
-            <h1 className='text-3xl my-4'>Show Book</h1>
+            <h1 className='text-4xl font-semibold mb-6'>Book Details</h1>
             {loading ? (
                 <Spinner />
             ) : (
-                <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4'>
-                    <div className='my-4'>
-                        <span className='text-xl mr-4 text-gray-500'>Id</span>
-                        <span>{book._id}</span>
+                <div className='flex flex-col bg-white shadow-lg rounded-lg p-6'>
+                    <div className='mb-4'>
+                        <h2 className='text-2xl font-medium text-gray-700'>Id</h2>
+                        <p className='text-lg text-gray-900'>{book._id}</p>
                     </div>
-                    <div className='my-4'>
-                        <span className='text-xl mr-4 text-gray-500'>Title</span>
-                        <span>{book.title}</span>
+                    <div className='mb-4'>
+                        <h2 className='text-2xl font-medium text-gray-700'>Title</h2>
+                        <p className='text-lg text-gray-900'>{book.title}</p>
                     </div>
-                    <div className='my-4'>
-                        <span className='text-xl mr-4 text-gray-500'>Author</span>
-                        <span>{book.author}</span>
+                    <div className='mb-4'>
+                        <h2 className='text-2xl font-medium text-gray-700'>Author</h2>
+                        <p className='text-lg text-gray-900'>{book.author}</p>
                     </div>
-                    <div className='my-4'>
-                        <span className='text-xl mr-4 text-gray-500'>Pushlish Year</span>
-                        <span>{book.publishYear}</span>
+                    <div className='mb-4'>
+                        <h2 className='text-2xl font-medium text-gray-700'>Genre</h2>
+                        <p className='text-lg text-gray-900'>{book.genre}</p>
                     </div>
-                    <div className='my-4'>
-                        <span className='text-xl mr-4 text-gray-500'>Create Time</span>
-                        <span>{new Date(book.createdAt).toString()}</span>
+                    <div className='mb-4'>
+                        <h2 className='text-2xl font-medium text-gray-700'>Status</h2>
+                        <p className='text-lg text-gray-900'>{book.status}</p>
                     </div>
-                    <div className='my-4'>
-                        <span className='text-xl mr-4 text-gray-500'>Last Update Time</span>
-                        <span>{new Date(book.updatedAt).toString()}</span>
+                    <div className='mb-4'>
+                        <h2 className='text-2xl font-medium text-gray-700'>Created At</h2>
+                        <p className='text-lg text-gray-900'>{new Date(book.createdAt).toLocaleString()}</p>
+                    </div>
+                    <div className='mb-4'>
+                        <h2 className='text-2xl font-medium text-gray-700'>Last Updated</h2>
+                        <p className='text-lg text-gray-900'>{new Date(book.updatedAt).toLocaleString()}</p>
                     </div>
                 </div>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default showBook
+export default ShowBook;

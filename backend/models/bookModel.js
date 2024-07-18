@@ -10,9 +10,14 @@ const bookSchema = mongoose.Schema(
             type: String,
             required: true,
         },
-        publishYear: {
-            type: Number,
+        genre: {
+            type: String,
             required: true,
+        },
+        status: {
+            type: String,
+            enum: ['available', 'checked out'],
+            default: 'available',
         },
     },
     {

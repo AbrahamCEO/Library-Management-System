@@ -5,18 +5,27 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 
-const createBook = () => {
+const CreateBook = () => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
-    const [publishYear, setPublishYear] = useState('');
+    const [genre, setGenre] = useState('');
+    const [status, setStatus] = useState('available');
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate('');
+    const navigate = useNavigate();
     const { enqueueSnackbar } = useSnackbar();
+
+    const genres = [
+        'Fiction', 'Non-Fiction', 'Science Fiction', 'Fantasy',
+        'Mystery', 'Romance', 'Thriller', 'Horror',
+        'Biography', 'Self-Help', 'Historical'
+    ];
+
     const handleSaveBook = () => {
         const data = {
             title,
             author,
-            publishYear,
+            genre,
+            status,
         };
         setLoading(true);
         axios
@@ -28,51 +37,70 @@ const createBook = () => {
             })
             .catch((error) => {
                 setLoading(false);
-                // alert('An error occured. Please check console');
-                enqueueSnackbar('Error', { variant: 'error' });
-                console.log(error);
+                enqueueSnackbar('Error Creating Book', { variant: 'error' });
+                console.log('Error:', error.response ? error.response.data : error.message);
             });
     };
 
     return (
-        <div className='p-4'>
+        <div className='p-6 bg-gray-100 min-h-screen'>
             <BackButton />
-            <h1 className='text-3xl my-4'>Create Book</h1>
-            {loading ? <Spinner /> : ''}
-            <div className='flex flex-col border-2 border-sky-400-rounded-xl-w-[600px] p-4 mx-auto'>
-                <div className='my-4'>
-                    <label className='text-xl mr-4 text-gray-500'>Title</label>
+            <h1 className='text-4xl font-semibold mb-6'>Create a New Book</h1>
+            {loading && <Spinner />}
+            <div className='flex flex-col bg-white shadow-lg rounded-lg p-6 mx-auto max-w-lg'>
+                <div className='mb-4'>
+                    <label className='block text-lg font-medium text-gray-700 mb-2'>Title</label>
                     <input
                         type='text'
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        className='border-2 border-gray-500 px-4 py-2 w-full'
+                        className='border-2 border-gray-300 px-4 py-2 rounded-md w-full'
+                        placeholder='Enter book title'
                     />
                 </div>
-                <div className='my-4'>
-                    <label className='text-xl mr-4 t text-gray-500'>Author</label>
+                <div className='mb-4'>
+                    <label className='block text-lg font-medium text-gray-700 mb-2'>Author</label>
                     <input
                         type='text'
                         value={author}
                         onChange={(e) => setAuthor(e.target.value)}
-                        className='border-2 border-gray-500 px-4 py-2 w-full'
+                        className='border-2 border-gray-300 px-4 py-2 rounded-md w-full'
+                        placeholder='Enter author name'
                     />
                 </div>
-                <div className='my-4'>
-                    <label className='text-xl mr-4 text-gray-500'>Publish Year</label>
-                    <input
-                        type='number'
-                        value={publishYear}
-                        onChange={(e) => setPublishYear(e.target.value)}
-                        className='border-2 border-gray-500 px-4 py-2 w-full'
-                    />
+                <div className='mb-4'>
+                    <label className='block text-lg font-medium text-gray-700 mb-2'>Genre</label>
+                    <select
+                        value={genre}
+                        onChange={(e) => setGenre(e.target.value)}
+                        className='border-2 border-gray-300 px-4 py-2 rounded-md w-full'
+                    >
+                        <option value='' disabled>Select Genre</option>
+                        {genres.map((gen) => (
+                            <option key={gen} value={gen}>{gen}</option>
+                        ))}
+                    </select>
                 </div>
-                <button className='p-2 bg-sky-300 m-8' onClick={handleSaveBook}>
+                <div className='mb-4'>
+                    <label className='block text-lg font-medium text-gray-700 mb-2'>Status</label>
+                    <select
+                        value={status}
+                        onChange={(e) => setStatus(e.target.value)}
+                        className='border-2 border-gray-300 px-4 py-2 rounded-md w-full'
+                    >
+                        <option value='available'>Available</option>
+                        <option value='checked out'>Checked Out</option>
+                    </select>
+                </div>
+                <button
+                    className='bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg transition-colors'
+                    onClick={handleSaveBook}
+                >
                     Save
                 </button>
             </div>
         </div>
-    )
-}
-//ended at 39:35
-export default createBook
+    );
+};
+
+export default CreateBook;
