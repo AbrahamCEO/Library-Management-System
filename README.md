@@ -4,6 +4,8 @@
 
 This project is a simple Library Management System with user authentication. The system allows users to sign up, log in, and manage books in a library. The frontend is built with React and Tailwind CSS, while the backend is a Node.js/Express server.
 
+Deployed Site: https://library-management-84a9.onrender.com/
+
 ## Getting Started
 
 ### Prerequisites
