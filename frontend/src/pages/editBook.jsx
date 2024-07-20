@@ -40,7 +40,7 @@ const EditBook = () => {
     const handleEditBook = () => {
         const data = { title, author, genre, status };
         setLoading(true);
-        axios.put(`http://localhost:5555/books/${id}`, data)
+        axios.put(`https://sca-library-system.onrender.com/books/${id}`, data)
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar('Book edited successfully', { variant: 'success' });

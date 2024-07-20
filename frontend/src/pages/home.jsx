@@ -19,7 +19,7 @@ const Home = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get('http://localhost:5555/books')
+        axios.get('https://sca-library-system.onrender.com/books')
             .then((response) => {
                 setBooks(response.data.data);
                 setLoading(false);
