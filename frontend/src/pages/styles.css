@@ -1,0 +1,181 @@
+/* src/pages/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .form-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .form-container a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .form-container a:hover {
+    text-decoration: underline;
+  }
+  
+  .p-6 {
+    padding: 24px;
+  }
+  
+  .bg-gray-50 {
+    background-color: #f9f9f9;
+  }
+  
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .justify-between {
+    justify-content: space-between;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .mb-8 {
+    margin-bottom: 32px;
+  }
+  
+  .text-4xl {
+    font-size: 2.25rem;
+  }
+  
+  .font-bold {
+    font-weight: 700;
+  }
+  
+  .text-gray-800 {
+    color: #333;
+  }
+  
+  .text-sky-600 {
+    color: #0d6efd;
+  }
+  
+  .text-sky-800 {
+    color: #0b5ed7;
+  }
+  
+  .text-gray-200 {
+    color: #e2e2e2;
+  }
+  
+  .text-gray-800 {
+    color: #333;
+  }
+  
+  .bg-sky-500 {
+    background-color: #0d6efd;
+  }
+  
+  .bg-gray-200 {
+    background-color: #e2e2e2;
+  }
+  
+  .hover\:bg-gray-300:hover {
+    background-color: #d3d3d3;
+  }
+  
+  .px-4 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .py-2 {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  
+  .rounded-lg {
+    border-radius: 8px;
+  }
+  
+  .font-semibold {
+    font-weight: 600;
+  }
+  
+  .text-white {
+    color: #fff;
+  }
+  
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  
+  .hover\:text-sky-800:hover {
+    color: #0b5ed7;
+  }
+  
+  .w-20 {
+    width: 80px;
+  }
+  
+  .h-20 {
+    height: 80px;
+  }
+  
+  .rounded-full {
+    border-radius: 50%;
+  }
+  
+  .mr-4 {
+    margin-right: 16px;
+  }
+  
+  .gap-x-4 {
+    gap: 16px;
+  }
+  
