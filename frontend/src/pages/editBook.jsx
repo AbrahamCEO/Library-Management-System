@@ -23,7 +23,7 @@ const EditBook = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`http://localhost:5555/books/${id}`)
+        axios.get(`https://sca-library-system.onrender.com/books/${id}`)
             .then((response) => {
                 setTitle(response.data.title);
                 setAuthor(response.data.author);
