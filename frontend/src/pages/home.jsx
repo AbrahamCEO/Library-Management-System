@@ -5,7 +5,7 @@ import Spinner from '../components/spinner';
 import BooksTable from '../components/home/BooksTable';
 import BooksCard from '../components/home/BooksCard';
 import SCAIcon from '../assets/SCA icon.webp'; // Import the image
-LOOOOOOOOOOOOOOOOOOOOOL
+
 const Home = () => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
