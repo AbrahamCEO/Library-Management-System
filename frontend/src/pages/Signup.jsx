@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles.css'; // Assuming you have some styles here
+npm install cypress --save-dev
 
 const Signup = () => {
     const [name, setName] = useState('');
